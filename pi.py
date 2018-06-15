@@ -1,17 +1,28 @@
-class Banane:
 
-    def __init__(self, couleur):
-        self.couleur = couleur
-
-class Singe(Banane):
-
-    def __init__(self, nom, couleur):
-        Banane.__init__(self, couleur)
+class Singe:
+    def __init__(self,nom):
         self.nom = nom
 
-    def __str__(self):
-        return "{0} mange la banane {1}".format(self.nom, self.couleur)
+    def mange(self,banane):
+        print(self.nom + ' mange la banane ' + banane.couleur)
+
+    def seReproduitAvec(self,singe2,nom_enfant):
+        print('Le singe ' + self.nom + ' se reproduit avec le singe ' + singe2.nom + ' pour créer ' + nom_enfant)
+        enfant = Singe(nom_enfant)
+        return enfant
+
+class Banane:
+    def __init__(self,couleur):
+        self.couleur = couleur
 
 
-print(Singe("Pierre", "Jaune"))
-print(Singe("Marie", "Verte"))
+pierre = Singe('Pierre')
+marie = Singe('Marie')
+bananeJaune = Banane('Jaune')
+bananeVerte = Banane('Verte')
+
+pierre.mange(bananeJaune)
+marie.mange(bananeVerte)
+
+robert = pierre.seReproduitAvec(marie,'Robert')
+robert.mange(bananeVerte)
