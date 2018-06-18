@@ -1,5 +1,4 @@
-def isIndex(n):
-    t = [3, 5, 0, 4, 4, 7]
+def isIndex(t, n):
     t2 = []
     for i in range(0, len(t)):
         if n == t[i]:
@@ -7,6 +6,6 @@ def isIndex(n):
     print(t2)
 
 
-isIndex(5)
+isIndex([3, 5, 0, 4, 4, 7], 5)
 
 
